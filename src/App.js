@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import Projects from './Projects'
 class RegularC {}
 class ComponentClass extends Component{}
 const reg = new RegularC()
@@ -6,17 +7,13 @@ const compClass = new ComponentClass()
 console.log('regulr c :',reg)
 console.log('Comp c :',compClass)
 class App extends Component{
-    constructor(){
-        super()
-        this.state = {showBio : false};
-        this.toggleBio = this.toggleBio.bind(this)
-    }
-    toggleBio(){
+    state = {showBio : false};
+    toggleBio = ()=>{
         this.setState({showBio : !this.state.showBio})
     }
     render(){
         return(
-            <div>
+            <div style={{backgroundColor:'light'}}>
                 <h1>Hello from App!</h1>
                 <p>Simple app to show the working of reeact Component</p>
                 {this.state.showBio ?
@@ -27,8 +24,13 @@ class App extends Component{
                 </div> :
                 <button onClick={this.toggleBio}>Read More</button>
                 }
-            </div>
+                <hr></hr>
+                <Projects/>
+            </div>      
+                
         )
+        
     }
+   
 }
 export default App;
